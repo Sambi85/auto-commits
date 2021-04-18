@@ -1,13 +1,14 @@
-name: CI for my auto-commits 
+name: CI Auto Commit 
 on:
   push:
-    branches: main
+    branches: 
+     - main
     
   schedule: 
-      - cron: "45 10-11 * * *"
+      - cron: "* * * * *"
 
 jobs:
-  build:
+  auto-commit:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +17,7 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
       
-      - name: Modify last update
+      - name: update time stamp
         run: |
           d=`date '+%Y-%m-%dT%H:%M:%SZ'`
           echo $d > LATEST_UPDATE
