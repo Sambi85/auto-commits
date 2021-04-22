@@ -1,8 +1,5 @@
 name: CI Auto Commit 
 on:
-  push:
-    branches: 
-     - main
     
   schedule: 
       - cron: "50 10-11 * * *"
